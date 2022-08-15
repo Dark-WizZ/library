@@ -28,10 +28,18 @@ function addBook(){
   console.table(library)
 
   input.insertAdjacentHTML('afterend', 
-            `<div class="card">
-              <div class="bookName">${_bookName}</div>
-              <div class="author">-${_author}</div>
-              <div class="pages">Pages: ${_pages}</div>
+            `<div class="card ${(_isRead)?'read':'Unread'}">
+              <div class="bookName">${_bookName?_bookName:'Title Undefined'}</div>
+              <div class="author">by<br>${_author?_author:'Author Undefined'}</div>
+              <div class="pages">Pages: ${_pages?_pages:'undefined'}</div>
               <div class="isRead">${(_isRead)?'Read':'Unread'}</div>
             </div>`)
+  
+  clearIP();
+}
+
+function clearIP(){
+  bookNameIP.value = '';
+  authorIP.value = '';
+  pagesIP.value = '';
 }

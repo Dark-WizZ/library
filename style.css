@@ -16,14 +16,15 @@ html, body{
   grid-template-rows: auto 1fr;
 }
 .header{
-  display: flex;
-  padding: 16px;
+  display: grid;
+  padding:6px;
   font-weight: 900;
 }
 .title{
   font-family: 'robotobold';
   font-size: 24px;
-  margin-right: auto;
+  place-self: center;
+  
 }
 .main{
   background-color: var(--main-clr);
@@ -48,26 +49,40 @@ button{
   height: 200px;
   background-color: var(--header-clr);
   display: grid;
+  border-left: 12px solid var(--blue-clr);
 }
+.cards .card{
+  border-left: 12px solid rgb(255, 234, 0);
+}
+.cards .card.read{
+  border-left: 12px solid rgb(77, 255, 0);
+}
+
 .bookName{
   font-family: 'robotobold';
   font-size: 2em;
+  justify-self: center;
 }
 #bookName{
-  padding-left: 0.5em;
+  padding-left: 0.2em;
   width: 100% ;
   font-family: 'robotobold';
   font-size: 0.8em;
 }
-.author, #author{
+ #author{
   justify-self: end;
+}
+.author{
+  text-align: center;
+  justify-self: center;
 }
 #pages{
   width: 5em;
+  padding-left: 0.2em;
 }
 input{
-  border-radius: 16px;
-  border:1px solid black;
+  border-radius: 10px;
+  border:1px solid var(--blue-clr);
   overflow: visible;
 }
 .input{
