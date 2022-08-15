@@ -23,9 +23,9 @@ function toggleRead(){
 function readMouseOver(){
   let def = this.parentElement.style.borderLeft;
   if(this.textContent=='Read'){
-    this.parentElement.style.borderColor = 'rgb(255, 234, 0)';
+    this.parentElement.style.borderColor = 'rgb(221, 202, 0)';
   }else{
-    this.parentElement.style.borderColor = 'rgb(77, 255, 0)';
+    this.parentElement.style.borderColor = 'rgb(42, 141, 0)';
   }
   this.addEventListener('mouseout',()=>{
     this.parentElement.style.borderLeft = def;

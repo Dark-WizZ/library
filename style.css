@@ -2,8 +2,8 @@
   --blue-clr: rgb(0, 125, 220);
   --main-clr: rgb(220, 220, 220);
   --header-clr: white;
-  --read: rgb(77, 255, 0);
-  --unread: rgb(255, 234, 0);
+  --read: rgb(42, 141, 0);
+  --unread: rgb(221, 202, 0);
   margin: 0;
   border: 0;
   box-sizing: border-box;
