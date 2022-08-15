@@ -17,20 +17,66 @@ html, body{
 }
 .header{
   display: flex;
-  font-size: 24px;
   padding: 16px;
   font-weight: 900;
 }
 .title{
   font-family: 'robotobold';
+  font-size: 24px;
   margin-right: auto;
 }
 .main{
   background-color: var(--main-clr);
 }
-button.add{
+button{
   background-color: var(--blue-clr);
   padding: 5px 16px;
   border-radius: 16px;
   color: white;
+}
+.cards{
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  justify-content: center;
+  gap: 24px;
+}
+.cards .card, .input{
+  padding: 20px;
+  border-radius: 16px;
+  width: 400px;
+  height: 200px;
+  background-color: var(--header-clr);
+  display: grid;
+}
+.bookName{
+  font-family: 'robotobold';
+  font-size: 2em;
+}
+#bookName{
+  padding-left: 0.5em;
+  width: 100% ;
+  font-family: 'robotobold';
+  font-size: 0.8em;
+}
+.author, #author{
+  justify-self: end;
+}
+#pages{
+  width: 5em;
+}
+input{
+  border-radius: 16px;
+  border:1px solid black;
+  overflow: visible;
+}
+.input{
+  position: relative;
+}
+.submit{
+  position:absolute;
+  justify-self: end;
+  width: 30%;
+  bottom: 0;
+  margin:1em;
 }
