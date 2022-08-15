@@ -148,3 +148,6 @@ input{
 .edit:hover, .remove:hover, button:hover, input[type="checkbox"]{
   cursor: pointer;
 }
+input:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}

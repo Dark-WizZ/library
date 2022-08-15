@@ -61,6 +61,7 @@ function editElem(){
 
 function removeElem(){
   let i = indByElem.apply(this);
+  console.log(i)
   library.splice(i, 1);
   this.parentElement.remove();
   updateView();
@@ -69,7 +70,8 @@ function removeElem(){
 function indByElem(){
   let list = this.parentElement.classList.value;
   let index = list.split(' ')[2].split('=')[1];
-  return index.slice(1, 2);
+  const i = index.replaceAll("'", '');
+  return i;
 }
 
 function Book (name, author, pages, isRead){
