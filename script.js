@@ -58,7 +58,8 @@ function updateView(){
               <div class="author">by<br>${_author?_author:'Author Undefined'}</div>
               <div class="pages">Pages: ${_pages?_pages:'undefined'}</div>
               <div class="isRead">${(_isRead)?'Read':'Unread'}</div>
-              <button class=remove>${count}</button>
+              <img src="img/delete.svg" alt="remove" class="remove"></img>
+              <img src="img/edit.svg" alt="edit" class="edit"></img>
             </div>`)
     count++;
   })

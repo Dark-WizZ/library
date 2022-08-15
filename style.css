@@ -52,6 +52,7 @@ button{
   border-left: 12px solid var(--blue-clr);
 }
 .cards .card{
+  position: relative;
   border-left: 12px solid rgb(255, 234, 0);
 }
 .cards .card.read{
@@ -94,4 +95,32 @@ input{
   width: 30%;
   bottom: 0;
   margin:1em;
+}
+.remove{
+  display: none;
+  background: red;
+  border-radius: 100px;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right:0%;
+  top: 0;
+  padding:5px;
+}
+.card:hover .remove{
+  display: block;
+}
+.edit{
+  display: none;
+  background: blue;
+  border-radius: 100px;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right:0;
+  bottom: 0;
+  padding: 8px;
+}
+.card:hover .edit{
+  display: block;
 }
