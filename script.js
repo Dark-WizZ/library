@@ -10,9 +10,15 @@ const add = document.querySelector('.add');
 const input = document.querySelector('.input');
 let card = document.querySelector('.card');
 let remove = document.querySelectorAll('.remove');
-let edit = document.querySelectorAll('.edit')
+let edit = document.querySelectorAll('.edit');
+let readButton = document.querySelectorAll('button.isRead')
 
 submitIP.addEventListener('click', addBook);
+
+function toggleRead(){
+  let i = indByElem.apply(this);
+  library[i].toggleRead();
+}
 
 function removeMouseOver(){
   let def = this.parentElement.style.borderLeft;
@@ -31,7 +37,8 @@ function editMouseOver(){
 }
 
 function editElem(){
-  let book = library[0];
+  let i = indByElem.apply(this);
+  let book = library[i];
   bookNameIP.value = book.name;
   authorIP.value = book.author;
   pagesIP.value = book.value;
@@ -41,12 +48,16 @@ function editElem(){
 }
 
 function removeElem(){
-  let list = this.parentElement.classList.value;
-  let index = list.split(' ')[2].split('=')[1];
-  let i = index.slice(1, 2);
+  let i = indByElem.apply(this);
   library.splice(i, 1);
   this.parentElement.remove();
   updateView();
+}
+
+function indByElem(){
+  let list = this.parentElement.classList.value;
+  let index = list.split(' ')[2].split('=')[1];
+  return index.slice(1, 2);
 }
 
 function Book (name, author, pages, isRead){
@@ -55,6 +66,13 @@ function Book (name, author, pages, isRead){
   this.pages = pages;
   this.isRead = Boolean(isRead);
 }
+
+Book.prototype.toggleRead = function(){
+  console.table(library)
+  this.isRead = (this.isRead)? false: true;
+  console.table(library)
+  updateView()
+};
 
 function addBook(){
   let _bookName = bookNameIP.value;
@@ -85,7 +103,7 @@ function updateView(){
               <div class="bookName">${_bookName?_bookName:'Title Undefined'}</div>
               <div class="author">by<br>${_author?_author:'Author Undefined'}</div>
               <div class="pages">Pages: ${_pages?_pages:'undefined'}</div>
-              <div class="isRead">${(_isRead)?'Read':'Unread'}</div>
+              <button class="isRead">${(_isRead)?'Read':'Unread'}</button>
               <img src="img/delete.svg" alt="remove" class="remove"></img>
               <img src="img/edit.svg" alt="edit" class="edit"></img>
             </div>`)
@@ -94,6 +112,7 @@ function updateView(){
 
   card = document.querySelectorAll('.card');
   remove = document.querySelectorAll('.remove');
+  readButton = document.querySelectorAll('button.isRead')
   remove.forEach((r)=>{
     r.addEventListener('click', removeElem);
     r.addEventListener('mouseover', removeMouseOver);
@@ -102,5 +121,8 @@ function updateView(){
   edit.forEach((e)=>{
     e.addEventListener('click', editElem);
     e.addEventListener('mouseover', editMouseOver);
+  })
+  readButton.forEach((e)=>{
+    e.addEventListener('click', toggleRead)
   })
 }

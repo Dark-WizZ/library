@@ -31,7 +31,7 @@ html, body{
 .main{
   background-color: var(--main-clr);
 }
-button{
+button.submit{
   background-color: var(--blue-clr);
   padding: 5px 16px;
   border-radius: 16px;
@@ -129,6 +129,7 @@ input{
   display: block;
 }
 .isRead{
+  font-weight: 700;
   display: grid;
   grid-auto-flow: column;
   justify-content: start;
