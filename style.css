@@ -34,6 +34,7 @@ button{
   border-radius: 16px;
   color: white;
 }
+
 .cards{
   padding: 24px;
   display: grid;
@@ -44,7 +45,6 @@ button{
 .cards .card, .input{
   padding: 20px;
   border-radius: 16px;
-  width: 400px;
   height: 200px;
   background-color: var(--header-clr);
   display: grid;
