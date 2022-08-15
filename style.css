@@ -1,0 +1,36 @@
+*{
+  --blue-clr: rgb(0, 125, 220);
+  --main-clr: rgb(220, 220, 220);
+  --header-clr: white;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'robotoregular';
+}
+html, body{
+  height: 100%;
+}
+.container{
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.header{
+  display: flex;
+  font-size: 24px;
+  padding: 16px;
+  font-weight: 900;
+}
+.title{
+  font-family: 'robotobold';
+  margin-right: auto;
+}
+.main{
+  background-color: var(--main-clr);
+}
+button.add{
+  background-color: var(--blue-clr);
+  padding: 5px 16px;
+  border-radius: 16px;
+  color: white;
+}
