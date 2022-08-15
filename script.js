@@ -14,6 +14,22 @@ let edit = document.querySelectorAll('.edit')
 
 submitIP.addEventListener('click', addBook);
 
+function removeMouseOver(){
+  let def = this.parentElement.style.borderLeft;
+  this.parentElement.style.borderLeft = "12px solid red"
+  this.addEventListener('mouseout',()=>{
+    this.parentElement.style.borderLeft = def;
+  })
+}
+
+function editMouseOver(){
+  let def = this.parentElement.style.borderLeft;
+  this.parentElement.style.borderLeft = "12px solid rgb(0, 125, 220)"
+  this.addEventListener('mouseout',()=>{
+    this.parentElement.style.borderLeft = def;
+  })
+}
+
 function editElem(){
   let book = library[0];
   bookNameIP.value = book.name;
@@ -65,7 +81,7 @@ function updateView(){
     let _pages = book.pages;
     let _isRead = book.isRead;
     input.insertAdjacentHTML('afterend', 
-            `<div class="card ${(_isRead)?'read':'Unread'} index='${count}'">
+            `<div class="card ${(_isRead)?'read':'unread'} index='${count}'">
               <div class="bookName">${_bookName?_bookName:'Title Undefined'}</div>
               <div class="author">by<br>${_author?_author:'Author Undefined'}</div>
               <div class="pages">Pages: ${_pages?_pages:'undefined'}</div>
@@ -79,10 +95,12 @@ function updateView(){
   card = document.querySelectorAll('.card');
   remove = document.querySelectorAll('.remove');
   remove.forEach((r)=>{
-    r.addEventListener('click', removeElem)
+    r.addEventListener('click', removeElem);
+    r.addEventListener('mouseover', removeMouseOver);
   })
   edit = document.querySelectorAll('.edit');
   edit.forEach((e)=>{
-    e.addEventListener('click', editElem)
+    e.addEventListener('click', editElem);
+    e.addEventListener('mouseover', editMouseOver);
   })
 }
