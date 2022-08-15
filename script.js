@@ -20,9 +20,21 @@ function toggleRead(){
   library[i].toggleRead();
 }
 
+function readMouseOver(){
+  let def = this.parentElement.style.borderLeft;
+  if(this.textContent=='Read'){
+    this.parentElement.style.borderColor = 'rgb(255, 234, 0)';
+  }else{
+    this.parentElement.style.borderColor = 'rgb(77, 255, 0)';
+  }
+  this.addEventListener('mouseout',()=>{
+    this.parentElement.style.borderLeft = def;
+  })
+}
+
 function removeMouseOver(){
   let def = this.parentElement.style.borderLeft;
-  this.parentElement.style.borderLeft = "12px solid red"
+  this.parentElement.style.borderColor = "red"
   this.addEventListener('mouseout',()=>{
     this.parentElement.style.borderLeft = def;
   })
@@ -30,7 +42,7 @@ function removeMouseOver(){
 
 function editMouseOver(){
   let def = this.parentElement.style.borderLeft;
-  this.parentElement.style.borderLeft = "12px solid rgb(0, 125, 220)"
+  this.parentElement.style.borderColor = "rgb(0, 125, 220)"
   this.addEventListener('mouseout',()=>{
     this.parentElement.style.borderLeft = def;
   })
@@ -68,9 +80,7 @@ function Book (name, author, pages, isRead){
 }
 
 Book.prototype.toggleRead = function(){
-  console.table(library)
   this.isRead = (this.isRead)? false: true;
-  console.table(library)
   updateView()
 };
 
@@ -124,5 +134,6 @@ function updateView(){
   })
   readButton.forEach((e)=>{
     e.addEventListener('click', toggleRead)
+    e.addEventListener('mouseover', readMouseOver)
   })
 }
