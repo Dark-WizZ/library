@@ -10,8 +10,19 @@ const add = document.querySelector('.add');
 const input = document.querySelector('.input');
 let card = document.querySelector('.card');
 let remove = document.querySelectorAll('.remove');
+let edit = document.querySelectorAll('.edit')
 
 submitIP.addEventListener('click', addBook);
+
+function editElem(){
+  let book = library[0];
+  bookNameIP.value = book.name;
+  authorIP.value = book.author;
+  pagesIP.value = book.value;
+  isReadIP.checked = book.isRead;
+  removeElem.apply(this)
+  bookNameIP.focus()
+}
 
 function removeElem(){
   let list = this.parentElement.classList.value;
@@ -19,6 +30,7 @@ function removeElem(){
   let i = index.slice(1, 2);
   library.splice(i, 1);
   this.parentElement.remove();
+  updateView();
 }
 
 function Book (name, author, pages, isRead){
@@ -34,7 +46,6 @@ function addBook(){
   let _pages = pagesIP.value;
   let _isRead = (isReadIP.checked)?'read':'';
   library.push(new Book (_bookName, _author, _pages, _isRead));
-   if (card) card.forEach((c)=>{c.remove()})
   updateView();
   clearIP();
 }
@@ -46,6 +57,7 @@ function clearIP(){
 }
 
 function updateView(){
+  if (card) card.forEach((c)=>{c.remove()})
   count=0;
   library.forEach((book)=>{
     let _bookName = book.name;
@@ -68,5 +80,9 @@ function updateView(){
   remove = document.querySelectorAll('.remove');
   remove.forEach((r)=>{
     r.addEventListener('click', removeElem)
+  })
+  edit = document.querySelectorAll('.edit');
+  edit.forEach((e)=>{
+    e.addEventListener('click', editElem)
   })
 }
