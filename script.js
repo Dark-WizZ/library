@@ -12,24 +12,17 @@ let card = document.querySelector('.card');
 let remove = document.querySelectorAll('.remove');
 let edit = document.querySelectorAll('.edit');
 let readButton = document.querySelectorAll('button.isRead')
+const blueClr= 'rgb(0, 125, 220)';
+const  mainClr= 'rgb(220, 220, 220)';
+const headerClr= 'white';
+const read= 'rgb(42, 141, 0)';
+const unread= 'rgb(221, 202, 0)';
 
 submitIP.addEventListener('click', addBook);
 
 function toggleRead(){
   let i = indByElem.apply(this);
   library[i].toggleRead();
-}
-
-function readMouseOver(){
-  let def = this.parentElement.style.borderLeft;
-  if(this.textContent=='Read'){
-    this.parentElement.style.borderColor = 'rgb(221, 202, 0)';
-  }else{
-    this.parentElement.style.borderColor = 'rgb(42, 141, 0)';
-  }
-  this.addEventListener('mouseout',()=>{
-    this.parentElement.style.borderLeft = def;
-  })
 }
 
 function removeMouseOver(){
@@ -136,6 +129,5 @@ function updateView(){
   })
   readButton.forEach((e)=>{
     e.addEventListener('click', toggleRead)
-    e.addEventListener('mouseover', readMouseOver)
   })
 }

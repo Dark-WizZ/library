@@ -52,6 +52,7 @@ button.submit{
   background-color: var(--header-clr);
   display: grid;
   border-left: 12px solid var(--blue-clr);
+  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 5px 5px;
 }
 .cards .card{
   justify-items: center;
@@ -113,6 +114,9 @@ input{
 }
 .card:hover .remove{
   display: block;
+}
+.card:hover{
+  box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 5px 5px;
 }
 .edit{
   display: none;
