@@ -46,7 +46,7 @@ function editElem(){
   let book = library[i];
   bookNameIP.value = book.name;
   authorIP.value = book.author;
-  pagesIP.value = book.value;
+  pagesIP.value = book.pages;
   isReadIP.checked = book.isRead;
   removeElem.apply(this)
   bookNameIP.focus()
@@ -54,7 +54,6 @@ function editElem(){
 
 function removeElem(){
   let i = indByElem.apply(this);
-  console.log(i)
   library.splice(i, 1);
   this.parentElement.remove();
   updateView();
@@ -67,11 +66,13 @@ function indByElem(){
   return i;
 }
 
-function Book (name, author, pages, isRead){
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = Boolean(isRead);
+class Book {
+  constructor(name, author, pages, isRead){
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = Boolean(isRead);
+  }
 }
 
 Book.prototype.toggleRead = function(){
