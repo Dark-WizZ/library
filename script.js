@@ -11,14 +11,27 @@ const input = document.querySelector('.input');
 let card = document.querySelector('.card');
 let remove = document.querySelectorAll('.remove');
 let edit = document.querySelectorAll('.edit');
-let readButton = document.querySelectorAll('button.isRead')
+let readButton = document.querySelectorAll('button.isRead');
+const titleError = document.querySelector('.bookName .error')
+const authorError = document.querySelector('.author .error')
+const pagesError = document.querySelector('.pages .error')
 const blueClr= 'rgb(0, 125, 220)';
 const  mainClr= 'rgb(220, 220, 220)';
 const headerClr= 'white';
 const read= 'rgb(42, 141, 0)';
 const unread= 'rgb(221, 202, 0)';
 
+
 submitIP.addEventListener('click', addBook);
+pagesIP.addEventListener('input', pageIPChange)
+
+function pageIPChange(){
+  if(!(/^[0-9]*$/.test(pagesIP.value))){
+      pagesError.textContent='Please enter numbers.'
+  }else{
+      pagesError.textContent='';
+  }
+}
 
 function toggleRead(){
   let i = indByElem.apply(this);
@@ -81,10 +94,30 @@ Book.prototype.toggleRead = function(){
 };
 
 function addBook(){
+  let error= false;
   let _bookName = bookNameIP.value;
   let _author = authorIP.value;
   let _pages = pagesIP.value;
   let _isRead = (isReadIP.checked)?'read':'';
+  if(_bookName==''){
+    titleError.textContent="Title can't be empty!"
+    error=true;
+  }else{
+    titleError.textContent='';
+  }
+  if(_author==''){
+    authorError.textContent="Please enter author's name."
+    error=true;
+  }else{
+    authorError.textContent='';
+  }
+  if(!(/^[0-9]*$/.test(pagesIP.value))){
+      pagesError.textContent='Please enter numbers.'
+      error=true;
+  }else{
+      pagesError.textContent='';
+  }
+  if(error || pageErrorState) return;
   library.push(new Book (_bookName, _author, _pages, _isRead));
   updateView();
   clearIP();

@@ -67,6 +67,9 @@ button.submit{
   font-family: 'robotobold';
   font-size: 2em;
   justify-self: center;
+  display: grid;
+  grid-template-rows: auto 1fr auto ;
+  gap:2px;
 }
 #bookName{
   padding-left: 0.2em;
@@ -154,4 +157,8 @@ input{
 }
 input:hover{
   background-color: rgba(0, 0, 0, 0.1);
+}
+span.error{
+  font-size: 0.8rem;
+  color:red;
 }
