@@ -117,7 +117,7 @@ function addBook(){
   }else{
       pagesError.textContent='';
   }
-  if(error || pageErrorState) return;
+  if(error) return;
   library.push(new Book (_bookName, _author, _pages, _isRead));
   updateView();
   clearIP();
